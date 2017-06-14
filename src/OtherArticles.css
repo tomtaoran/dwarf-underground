@@ -1,0 +1,13 @@
+
+.other-articles {
+  border-top: 1px solid #ccc;
+  background-color: rgba(207,181,59,.1);
+  padding: 0;
+}
+
+.other-articles h2 {
+  text-align: center;
+  margin: 1em 0;
+  font-weight: 700;
+  color: #333;
+}

@@ -1,0 +1,12 @@
+.article {
+  padding: 30px 20px;
+}
+
+.article-title {
+  font-weight: 700;
+  color: #333;
+}
+
+.article-body {
+  margin-top: 30px;
+}

@@ -1,0 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+aside {
+  padding: 30px;
+  background-color: rgba(207,181,59,.1);
+}

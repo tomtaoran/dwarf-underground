@@ -57,7 +57,7 @@ class ArticleLinks extends Component{
             <span className="article-link-text">Comments</span>
           </a>
           <div>
-            <ul class="comments">
+            <ul className="no-bullet">
             {this.state.comments.reverse().map(this.renderComment)}
             </ul>
           </div>

@@ -25,4 +25,17 @@ class OtherArticles extends Component {
             )
     }
 }
+
+/*
+function OtherArticle (props){
+    return(<div className={props.article.divName}> 
+                    <a href={props.article.aHref}> 
+                    <img src={props.article.imgSrc} alt={props.article.imgAlt} /> // Oh, we name our props as article 
+                    <p>{props.article.pContent}</p> 
+                    </a>   
+                </div> 
+)
+}
+*/
+
 export default OtherArticles

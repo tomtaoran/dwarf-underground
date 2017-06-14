@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './ArticleLinks.css'
+import Comments from './Comments'
+
 class ArticleLinks extends Component{
     constructor() {
         super()
@@ -7,6 +9,8 @@ class ArticleLinks extends Component{
             clicked: "false",
             comments: [],
         }
+
+        // this.renderCommit = this.renderCommit.bind(this) // Hey, we can bind this at constructor level
     }
 
     handleClick(ev) {
@@ -18,8 +22,9 @@ class ArticleLinks extends Component{
     handleSubmit(ev) {
         ev.preventDefault()
         const comments = [...this.state.comments]
-        comments.push(this.commentInput.value)
-        this.setState({ comments })
+        comments.unshift(this.commentInput.value)
+        this.setState({ comments }) // this.setState({state setting}, ()=>{}) The second function will be done AFTER the first state setting argument is complete
+        //Note that setState is Asycronous, it happened unpredictablely
         ev.currentTarget.reset()
     }
 
@@ -36,19 +41,23 @@ class ArticleLinks extends Component{
             <i className="fa fa-comments-o"></i>
             <span className="article-link-text">Comments</span>
           </a>
-          <div>
-              <ul className="no-bullet">
-              {this.state.comments.reverse().map(this.renderComment)}
-              </ul>
-              <form onSubmit={this.handleSubmit.bind(this)}>
-              <input type="text" placeholder="Write your comment here..." ref={(input) => this.commentInput = input}/>      
-              </form>
-          </div>
+          
           <a className="article-link" href="#">
           <i className="fa fa-share"></i>
           <span className="article-link-text">Share Post</span>
           </a>
-        </div>)
+        <div>
+          <br></br>
+            <Comments />
+              {/* This is my Old Way
+              <ul className="no-bullet">
+              {this.state.comments.map(this.renderComment)}
+              </ul>
+              <form onSubmit={this.handleSubmit.bind(this)}>
+              <input type="text" placeholder="Write your comment here..." ref={(input) => this.commentInput = input}/>      
+              </form>*/}
+          </div>
+          </div>)
     }else{
        return ( 
           <div className="article-links">
@@ -56,16 +65,18 @@ class ArticleLinks extends Component{
             <i className="fa fa-comments-o"></i>
             <span className="article-link-text">Comments</span>
           </a>
-          <div>
-            <ul className="no-bullet">
-            {this.state.comments.reverse().map(this.renderComment)}
-            </ul>
-          </div>
+         
           <a className="article-link" href="#">
             <i className="fa fa-share"></i>
             <span className="article-link-text">Share Post</span>
           </a>
-        </div>)
+         <div>
+           {/*This is my old way
+            <ul className="no-bullet">
+            {this.state.comments.map(this.renderComment)}
+            </ul>*/} 
+          </div>
+          </div>)
     }
        
     }
